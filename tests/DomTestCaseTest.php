@@ -1,0 +1,1033 @@
+<?php
+/**
+ * PHPUnit
+ *
+ * Copyright (c) 2001-2014, Sebastian Bergmann <sebastian@phpunit.de>.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ *   * Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ *   * Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ *   * Neither the name of Sebastian Bergmann nor the names of his
+ *     contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @package    PHPUnit_Framework_DOMTestCase
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @author     Jeff Welch <whatthejeff@gmail.com>
+ * @copyright  2014 Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @link       http://github.com/phpunit/phpunit-dom-assertions
+ * @since      File available since Release 1.0.0
+ */
+
+/**
+ *
+ *
+ * @package    PHPUnit_Framework_DOMTestCase
+ * @author     Sebastian Bergmann <sebastian@phpunit.de>
+ * @author     Jeff Welch <whatthejeff@gmail.com>
+ * @copyright  2014 Sebastian Bergmann <sebastian@phpunit.de>
+ * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
+ * @link       http://github.com/phpunit/phpunit-dom-assertions
+ * @since      Class available since Release 1.0.0
+ */
+class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
+{
+    private $html;
+
+    protected function setUp()
+    {
+        $this->html = file_get_contents(
+            __DIR__ . '/_files/SelectorAssertionsFixture.html'
+        );
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagTypeTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'html');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagTypeFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'code');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagIdTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id' => 'test_text');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagIdFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id' => 'test_text_doesnt_exist');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagStringContentTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id' => 'test_text',
+            'content' => 'My test tag content');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagStringContentFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id' => 'test_text',
+            'content' => 'My non existent tag content');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagRegexpContentTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id' => 'test_text',
+            'content' => 'regexp:/test tag/');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagRegexpModifierContentTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id' => 'test_text',
+            'content' => 'regexp:/TEST TAG/i');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagRegexpContentFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id' => 'test_text',
+            'content' => 'regexp:/asdf/');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagCdataContentTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'script',
+            'content' => 'alert(\'Hello, world!\');');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagCdataontentFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'script',
+            'content' => 'asdf');
+        $this->assertTag($matcher, $this->html);
+    }
+
+
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagAttributesTrueA()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'span',
+            'attributes' => array('class' => 'test_class'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagAttributesTrueB()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div',
+            'attributes' => array('id' => 'test_child_id'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagAttributesFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'span',
+            'attributes' => array('class' => 'test_missing_class'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagAttributesRegexpTrueA()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'span',
+            'attributes' => array('class' => 'regexp:/.+_class/'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagAttributesRegexpTrueB()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div',
+            'attributes' => array('id' => 'regexp:/.+_child_.+/'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagAttributesRegexpModifierTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div',
+            'attributes' => array('id' => 'regexp:/.+_CHILD_.+/i'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagAttributesRegexpModifierFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div',
+            'attributes' => array('id' => 'regexp:/.+_CHILD_.+/'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagAttributesRegexpFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'span',
+            'attributes' => array('class' => 'regexp:/.+_missing_.+/'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagAttributesMultiPartClassTrueA()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div',
+            'id'  => 'test_multi_class',
+            'attributes' => array('class' => 'multi class'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagAttributesMultiPartClassTrueB()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div',
+            'id'  => 'test_multi_class',
+            'attributes' => array('class' => 'multi'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagAttributesMultiPartClassFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div',
+            'id'  => 'test_multi_class',
+            'attributes' => array('class' => 'mul'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagParentTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'head',
+            'parent' => array('tag' => 'html'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagParentFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'head',
+            'parent' => array('tag' => 'div'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagMultiplePossibleChildren()
+    {
+        $this->markTestIncomplete();
+        $matcher = array(
+            'tag' => 'li',
+            'parent' => array(
+                'tag' => 'ul',
+                'id' => 'another_ul'
+            )
+        );
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagChildTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'html',
+            'child' => array('tag' => 'head'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagChildFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'html',
+            'child' => array('tag' => 'div'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagAdjacentSiblingTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'img',
+            'adjacent-sibling' => array('tag' => 'input'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagAdjacentSiblingFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'img',
+            'adjacent-sibling' => array('tag' => 'div'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagAncestorTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div',
+            'ancestor' => array('tag' => 'html'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagAncestorFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'html',
+            'ancestor' => array('tag' => 'div'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagDescendantTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'html',
+            'descendant' => array('tag' => 'div'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagDescendantFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div',
+            'descendant' => array('tag' => 'html'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagChildrenCountTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'ul',
+            'children' => array('count' => 3));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagChildrenCountFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'ul',
+            'children' => array('count' => 5));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagChildrenLessThanTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'ul',
+            'children' => array('less_than' => 10));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagChildrenLessThanFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'ul',
+            'children' => array('less_than' => 2));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagChildrenGreaterThanTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'ul',
+            'children' => array('greater_than' => 2));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagChildrenGreaterThanFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'ul',
+            'children' => array('greater_than' => 10));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagChildrenOnlyTrue()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'ul',
+            'children' => array('only' => array('tag' =>'li')));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagChildrenOnlyFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'ul',
+            'children' => array('only' => array('tag' =>'div')));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagTypeIdTrueA()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'ul', 'id' => 'my_ul');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagTypeIdTrueB()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id' => 'my_ul', 'tag' => 'ul');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagTypeIdTrueC()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'input', 'id'  => 'input_test_id');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertTagTypeIdFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div', 'id'  => 'my_ul');
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertTagContentAttributes()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div',
+            'content'    => 'Test Id Text',
+            'attributes' => array('id' => 'test_id',
+                'class' => 'my_test_class'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertParentContentAttributes()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag'        => 'div',
+            'content'    => 'Test Id Text',
+            'attributes' => array('id'    => 'test_id',
+                'class' => 'my_test_class'),
+            'parent'     => array('tag' => 'body'));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertChildContentAttributes()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag'        => 'div',
+            'content'    => 'Test Id Text',
+            'attributes' => array('id'    => 'test_id',
+                'class' => 'my_test_class'),
+            'child'      => array('tag'        => 'div',
+                'attributes' => array('id' => 'test_child_id')));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertAdjacentSiblingContentAttributes()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag'              => 'div',
+            'content'          => 'Test Id Text',
+            'attributes'       => array('id'    => 'test_id',
+                'class' => 'my_test_class'),
+            'adjacent-sibling' => array('tag'        => 'div',
+                'attributes' => array('id' => 'test_children')));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertChildSubChildren()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id' => 'test_id',
+            'child' => array('id' => 'test_child_id',
+                'child' => array('id' => 'test_subchild_id')));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertAdjacentSiblingSubAdjacentSibling()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id' => 'test_id',
+            'adjacent-sibling' => array('id' => 'test_children',
+                'adjacent-sibling' => array('class' => 'test_class')));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertAncestorContentAttributes()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id'         => 'test_subchild_id',
+            'content'    => 'My Subchild',
+            'attributes' => array('id' => 'test_subchild_id'),
+            'ancestor'   => array('tag'        => 'div',
+                'attributes' => array('id' => 'test_id')));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertDescendantContentAttributes()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id'         => 'test_id',
+            'content'    => 'Test Id Text',
+            'attributes' => array('id'  => 'test_id'),
+            'descendant' => array('tag'        => 'span',
+                'attributes' => array('id' => 'test_subchild_id')));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     */
+    public function testAssertChildrenContentAttributes()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('id'         => 'test_children',
+            'content'    => 'My Children',
+            'attributes' => array('class'  => 'children'),
+
+            'children' => array('less_than'    => '25',
+                'greater_than' => '2',
+                'only'         => array('tag' => 'div',
+                    'attributes' => array('class' => 'my_child'))
+            ));
+        $this->assertTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertNotTag
+     */
+    public function testAssertNotTagTypeIdFalse()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div', 'id'  => 'my_ul');
+        $this->assertNotTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertNotTag
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertNotTagContentAttributes()
+    {
+        $this->markTestIncomplete();
+        $matcher = array('tag' => 'div',
+            'content'    => 'Test Id Text',
+            'attributes' => array('id' => 'test_id',
+                'class' => 'my_test_class'));
+        $this->assertNotTag($matcher, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     */
+    public function testAssertSelectCountPresentTrue()
+    {
+        $selector = 'div#test_id';
+        $count    = true;
+
+        $this->assertSelectCount($selector, $count, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectCountPresentFalse()
+    {
+        $selector = 'div#non_existent';
+        $count    = true;
+
+        $this->assertSelectCount($selector, $count, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     */
+    public function testAssertSelectCountNotPresentTrue()
+    {
+        $selector = 'div#non_existent';
+        $count    = false;
+
+        $this->assertSelectCount($selector, $count, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectNotPresentFalse()
+    {
+        $selector = 'div#test_id';
+        $count    = false;
+
+        $this->assertSelectCount($selector, $count, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     */
+    public function testAssertSelectCountChildTrue()
+    {
+        $selector = '#my_ul > li';
+        $count    = 3;
+
+        $this->assertSelectCount($selector, $count, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectCountChildFalse()
+    {
+        $selector = '#my_ul > li';
+        $count    = 4;
+
+        $this->assertSelectCount($selector, $count, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     */
+    public function testAssertSelectCountAdjacentSiblingTrue()
+    {
+        $selector = 'div + div + div';
+        $count    = 2;
+
+        $this->assertSelectCount($selector, $count, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectCountAdjacentSiblingFalse()
+    {
+        $selector = '#test_children + div';
+        $count    = 1;
+
+        $this->assertSelectCount($selector, $count, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     */
+    public function testAssertSelectCountDescendantTrue()
+    {
+        $selector = '#my_ul li';
+        $count    = 3;
+
+        $this->assertSelectCount($selector, $count, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectCountDescendantFalse()
+    {
+        $selector = '#my_ul li';
+        $count    = 4;
+
+        $this->assertSelectCount($selector, $count, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     */
+    public function testAssertSelectCountGreaterThanTrue()
+    {
+        $selector = '#my_ul > li';
+        $range    = array('>' => 2);
+
+        $this->assertSelectCount($selector, $range, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectCountGreaterThanFalse()
+    {
+        $selector = '#my_ul > li';
+        $range    = array('>' => 3);
+
+        $this->assertSelectCount($selector, $range, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     */
+    public function testAssertSelectCountGreaterThanEqualToTrue()
+    {
+        $selector = '#my_ul > li';
+        $range    = array('>=' => 3);
+
+        $this->assertSelectCount($selector, $range, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectCountGreaterThanEqualToFalse()
+    {
+        $selector = '#my_ul > li';
+        $range    = array('>=' => 4);
+
+        $this->assertSelectCount($selector, $range, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     */
+    public function testAssertSelectCountLessThanTrue()
+    {
+        $selector = '#my_ul > li';
+        $range    = array('<' => 4);
+
+        $this->assertSelectCount($selector, $range, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectCountLessThanFalse()
+    {
+        $selector = '#my_ul > li';
+        $range    = array('<' => 3);
+
+        $this->assertSelectCount($selector, $range, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     */
+    public function testAssertSelectCountLessThanEqualToTrue()
+    {
+        $selector = '#my_ul > li';
+        $range    = array('<=' => 3);
+
+        $this->assertSelectCount($selector, $range, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectCountLessThanEqualToFalse()
+    {
+        $selector = '#my_ul > li';
+        $range  = array('<=' => 2);
+
+        $this->assertSelectCount($selector, $range, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     */
+    public function testAssertSelectCountRangeTrue()
+    {
+        $selector = '#my_ul > li';
+        $range    = array('>' => 2, '<' => 4);
+
+        $this->assertSelectCount($selector, $range, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectCountRangeFalse()
+    {
+        $selector = '#my_ul > li';
+        $range    = array('>' => 1, '<' => 3);
+
+        $this->assertSelectCount($selector, $range, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectEquals
+     */
+    public function testAssertSelectEqualsContentPresentTrue()
+    {
+        $selector = 'span.test_class';
+        $content  = 'Test Class Text';
+
+        $this->assertSelectEquals($selector, $content, true, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectEquals
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectEqualsContentPresentFalse()
+    {
+        $selector = 'span.test_class';
+        $content  = 'Test Nonexistent';
+
+        $this->assertSelectEquals($selector, $content, true, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectEquals
+     */
+    public function testAssertSelectEqualsContentNotPresentTrue()
+    {
+        $selector = 'span.test_class';
+        $content  = 'Test Nonexistent';
+
+        $this->assertSelectEquals($selector, $content, false, $this->html);
+    }
+
+    /**
+     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectEquals
+     * @expectedException PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAssertSelectEqualsContentNotPresentFalse()
+    {
+        $selector = 'span.test_class';
+        $content  = 'Test Class Text';
+
+        $this->assertSelectEquals($selector, $content, false, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectRegExp
+     */
+    public function testAssertSelectRegExpContentPresentTrue()
+    {
+        $selector = 'span.test_class';
+        $regexp   = '/Test.*Text/';
+
+        $this->assertSelectRegExp($selector, $regexp, true, $this->html);
+    }
+
+    /**
+     * @covers PHPUnit_Framework_DOMTestCase::assertSelectRegExp
+     */
+    public function testAssertSelectRegExpContentPresentFalse()
+    {
+        $selector = 'span.test_class';
+        $regexp   = '/Nonexistant/';
+
+        $this->assertSelectRegExp($selector, $regexp, false, $this->html);
+    }
+}

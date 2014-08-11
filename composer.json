@@ -1,0 +1,33 @@
+{
+    "name": "phpunit/phpunit-dom-assertions",
+    "description": "DOM assertions for PHPUnit",
+    "keywords": ["dom","xpath","css","assertions","phpunit","tests"],
+    "homepage": "http://github.com/phpunit/phpunit-dom-assertions",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastian Bergmann",
+            "email": "sebastian@phpunit.de"
+        },
+        {
+            "name": "Jeff Welch",
+            "email": "whatthejeff@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/css-selector": "~2.0",
+        "symfony/dom-crawler": "~2.0",
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
