@@ -117,6 +117,8 @@ abstract class PHPUnit_Framework_DOMTestCase extends PHPUnit_Framework_TestCase
      * @param string                $message
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
+     *
+     * @throws PHPUnit_Framework_Exception
      */
     public static function assertSelectEquals($selector, $content, $count, $actual, $message = '', $isHtml = true)
     {
