@@ -29,7 +29,7 @@ and run the `php composer.phar install` command to install it:
 ~~~json
 {
     "require-dev": {
-        "phpunit/phpunit-dom-assertions": "~1.0"
+        "phpunit/phpunit-dom-assertions": "1.0.*@dev"
     }
 }
 ~~~
