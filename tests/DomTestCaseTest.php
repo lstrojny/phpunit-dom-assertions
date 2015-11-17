@@ -993,4 +993,10 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
 
         $this->assertSelectRegExp($selector, $regexp, false, $this->html);
     }
+
+    public function testAssertSelectXPathCountPresentTrue()
+    {
+        $xpath = '//*[@id="login"]';
+        $this->assertXPathCount($xpath, 1, $this->html);
+    }
 }

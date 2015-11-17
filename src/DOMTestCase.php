@@ -85,15 +85,7 @@ abstract class PHPUnit_Framework_DOMTestCase extends PHPUnit_Framework_TestCase
      */
     public static function assertSelectEquals($selector, $content, $count, $actual, $message = '', $isHtml = true)
     {
-        $crawler = new Crawler;
-
-        if ($actual instanceof DOMDocument) {
-            $crawler->addDocument($actual);
-        } else if ($isHtml) {
-            $crawler->addHtmlContent($actual);
-        } else {
-            $crawler->addXmlContent($actual);
-        }
+        $crawler = self::createCrawler($actual, $isHtml);
 
         $crawler = $crawler->filter($selector);
 
@@ -111,6 +103,86 @@ abstract class PHPUnit_Framework_DOMTestCase extends PHPUnit_Framework_TestCase
             });
         }
 
+        self::assertCrawlerContents($crawler, $count, $message);
+    }
+
+    /**
+     * Assert the presence, absence, or count of elements in a document matching
+     * the XPath $selector, regardless of the contents of those elements.
+     *
+     * The first argument, $selector, is the XPath selector used to match
+     * the elements in the $actual document.
+     *
+     * The second argument, $count, can be either boolean or numeric.
+     * When boolean, it asserts for presence of elements matching the selector
+     * (true) or absence of elements (false).
+     * When numeric, it asserts the count of elements.
+     *
+     * assertXPathCount('//*[@id="login"]', true, $html);  // any?
+     * assertXPathCount('/html/head/script', 1, $html);     // exactly 1?
+     *
+     * @param $selector
+     * @param $count
+     * @param $actual
+     * @param string $message
+     * @param bool $isHtml
+     */
+    public static function assertXPathCount($selector, $count, $actual, $message = '', $isHtml = true)
+    {
+        self::assertXPathEquals(
+            $selector, true, $count, $actual, $message, $isHtml
+        );
+    }
+
+    /**
+     *
+     * @param array                 $selector
+     * @param string                $content
+     * @param integer|boolean|array $count
+     * @param mixed                 $actual
+     * @param string                $message
+     * @param boolean               $isHtml
+     * @since Method available since Release 1.0.0
+     *
+     * @throws PHPUnit_Framework_Exception
+     */
+    public static function assertXPathEquals($selector, $content, $count, $actual, $message = '', $isHtml = true)
+    {
+        $crawler = self::createCrawler($actual, $isHtml);
+
+        $crawler = $crawler->filterXPath($selector);
+
+        self::assertCrawlerContents($crawler, $count, $message);
+
+    }
+
+    /**
+     * @param $actual string
+     * @param $isHtml boolean
+     * @return Crawler
+     */
+    private static function createCrawler($actual, $isHtml)
+    {
+        $crawler = new Crawler;
+
+        if ($actual instanceof DOMDocument) {
+            $crawler->addDocument($actual);
+        } else if ($isHtml) {
+            $crawler->addHtmlContent($actual);
+        } else {
+            $crawler->addXmlContent($actual);
+        }
+
+        return $crawler;
+    }
+
+    /**
+     * @param Crawler $crawler
+     * @param $count
+     * @param $message
+     */
+    private static function assertCrawlerContents(Crawler $crawler, $count, $message)
+    {
         $found = count($crawler);
 
         if (is_numeric($count)) {
@@ -129,7 +201,7 @@ abstract class PHPUnit_Framework_DOMTestCase extends PHPUnit_Framework_TestCase
 
         else if (is_array($count) &&
             (isset($count['>']) || isset($count['<']) ||
-            isset($count['>=']) || isset($count['<=']))) {
+                isset($count['>=']) || isset($count['<=']))) {
 
             if (isset($count['>'])) {
                 self::assertTrue($found > $count['>'], $message);
@@ -149,7 +221,8 @@ abstract class PHPUnit_Framework_DOMTestCase extends PHPUnit_Framework_TestCase
         }
 
         else {
-            throw new PHPUnit_Framework_Exception('Invalid count format');
+            throw new PHPUnit_Framework_Exception('Invalid count format. ' . $count);
         }
     }
+
 }
