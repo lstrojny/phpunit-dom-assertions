@@ -82,4 +82,48 @@ trait PHPUnit_Framework_DOMTestTrait
     {
         PHPUnit_Framework_DOMTestCase::assertSelectEquals($selector, $content, $count, $actual, $message, $isHtml);
     }
+
+    /**
+     * @see PHPUnit_Framework_DOMTestCase::assertXPathCount
+     *
+     * @param $selector
+     * @param $count
+     * @param $actual
+     * @param string $message
+     * @param bool $isHtml
+     */
+    public static function assertXPathCount($selector, $count, $actual, $message = '', $isHtml = true)
+    {
+        PHPUnit_Framework_DOMTestCase::assertXPathCount($selector, $count, $actual, $message, $isHtml);
+    }
+
+    /**
+     * @see PHPUnit_Framework_DOMTestCase::assertXPathRegExp
+     *
+     * @param $selector
+     * @param $pattern
+     * @param $count
+     * @param $actual
+     * @param $message
+     * @param $isHtml
+     */
+    public static function assertXPathRegExp($selector, $pattern, $count, $actual, $message, $isHtml)
+    {
+        PHPUnit_Framework_DOMTestCase::assertXPathRegExp($selector, $pattern, $count, $actual, $message, $isHtml);
+    }
+
+    /**
+     * @see PHPUnit_Framework_DOMTestCase::assertXPathEquals
+     *
+     * @param $selector
+     * @param $content
+     * @param $count
+     * @param $actual
+     * @param $message
+     * @param $isHtml
+     */
+    public static function assertXPathEquals($selector, $content, $count, $actual, $message, $isHtml)
+    {
+        PHPUnit_Framework_DOMTestCase::assertXPathEquals($selector, $content, $count, $actual, $message, $isHtml);
+    }
 }
