@@ -90,17 +90,7 @@ abstract class PHPUnit_Framework_DOMTestCase extends PHPUnit_Framework_TestCase
         $crawler = $crawler->filter($selector);
 
         if (is_string($content)) {
-            $crawler = $crawler->reduce(function (Crawler $node, $i) use ($content) {
-                if ($content === '') {
-                    return $node->text() === '';
-                }
-
-                if (preg_match('/^regexp\s*:\s*(.*)/i', $content, $matches)) {
-                    return (bool) preg_match($matches[1], $node->text());
-                }
-
-                return strstr($node->text(), $content) !== false;
-            });
+            $crawler = self::filterCrawler($crawler, $content);
         }
 
         self::assertCrawlerContents($crawler, $count, $message);
@@ -135,6 +125,27 @@ abstract class PHPUnit_Framework_DOMTestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * //*[@id="test_children"]/text()
+     *
+     * assertXPathRegExp("//*[@id="test_children"]/text()", "/Children/", true, $html); // any?
+     * assertXPathRegExp("//*[@id="test_children"]/text()", "/Children/", 1, $html);    // 3?
+     *
+     * @param array                 $selector
+     * @param string                $pattern
+     * @param integer|boolean|array $count
+     * @param mixed                 $actual
+     * @param string                $message
+     * @param boolean               $isHtml
+     * @since Method available since Release 1.0.0
+     */
+    public static function assertXPathRegExp($selector, $pattern, $count, $actual, $message = '', $isHtml = true)
+    {
+        self::assertXPathEquals(
+            $selector, "regexp:$pattern", $count, $actual, $message, $isHtml
+        );
+    }
+
+    /**
      *
      * @param array                 $selector
      * @param string                $content
@@ -151,6 +162,10 @@ abstract class PHPUnit_Framework_DOMTestCase extends PHPUnit_Framework_TestCase
         $crawler = self::createCrawler($actual, $isHtml);
 
         $crawler = $crawler->filterXPath($selector);
+
+        if (is_string($content)) {
+            $crawler = self::filterCrawler($crawler, $content);
+        }
 
         self::assertCrawlerContents($crawler, $count, $message);
 
@@ -225,4 +240,23 @@ abstract class PHPUnit_Framework_DOMTestCase extends PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * @param Crawler $crawler
+     * @param $content
+     * @return Crawler
+     */
+    private static function filterCrawler(Crawler $crawler, $content)
+    {
+        return $crawler->reduce(function (Crawler $node, $i) use ($content) {
+            if ($content === '') {
+                return $node->text() === '';
+            }
+
+            if (preg_match('/^regexp\s*:\s*(.*)/i', $content, $matches)) {
+                return (bool) preg_match($matches[1], $node->text());
+            }
+
+            return strstr($node->text(), $content) !== false;
+        });
+    }
 }
