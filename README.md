@@ -49,7 +49,7 @@ class DOMTest extends PHPUnit_Framework_DOMTestCase
         $selector = 'span.test_class';
         $content  = 'Test Class Text';
 
-        $this->assertSelectEquals($selector, $content, true, $html);
+        self::assertSelectEquals($selector, $content, true, $html);
     }
 }
 ~~~
