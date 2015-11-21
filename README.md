@@ -5,6 +5,9 @@ A work in progress, drop-in replacement for the following deprecated PHPUnit ass
  * `assertSelectCount()`
  * `assertSelectRegExp()`
  * `assertSelectEquals()`
+ * `assertXPathCount()`
+ * `assertXPathRegExp()`
+ * `assertXPathEquals()`
  * `assertTag()` (not yet ported)
  * `assertNotTag()` (not yet ported)
 
@@ -14,7 +17,6 @@ A work in progress, drop-in replacement for the following deprecated PHPUnit ass
  * Improve tests.
  * Improve error messages.
  * Improve comments and documentation.
- * Add XPath support.
 
 ## Requirements
 
