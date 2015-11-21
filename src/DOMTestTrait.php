@@ -107,7 +107,7 @@ trait PHPUnit_Framework_DOMTestTrait
      * @param $message
      * @param $isHtml
      */
-    public static function assertXPathRegExp($selector, $pattern, $count, $actual, $message, $isHtml)
+    public static function assertXPathRegExp($selector, $pattern, $count, $actual, $message = '', $isHtml = true)
     {
         PHPUnit_Framework_DOMTestCase::assertXPathRegExp($selector, $pattern, $count, $actual, $message, $isHtml);
     }
@@ -122,7 +122,7 @@ trait PHPUnit_Framework_DOMTestTrait
      * @param $message
      * @param $isHtml
      */
-    public static function assertXPathEquals($selector, $content, $count, $actual, $message, $isHtml)
+    public static function assertXPathEquals($selector, $content, $count, $actual, $message = '', $isHtml = true)
     {
         PHPUnit_Framework_DOMTestCase::assertXPathEquals($selector, $content, $count, $actual, $message, $isHtml);
     }
