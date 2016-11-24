@@ -12,6 +12,7 @@ php:
 
 before_script:
     - composer config disable-tls true
+    - composer config secure-http false
     - composer install --prefer-source
 
 script: vendor/bin/phpunit
