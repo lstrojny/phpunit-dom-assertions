@@ -31,7 +31,7 @@ and run the `php composer.phar install` command to install it:
 ~~~json
 {
     "require-dev": {
-        "phpunit/phpunit-dom-assertions": "1.0.*@dev"
+        "phpunit/phpunit-dom-assertions": "<1.0"
     }
 }
 ~~~
@@ -56,7 +56,7 @@ class DOMTest extends PHPUnit_Framework_DOMTestCase
 
 ## Tests
 
-[![Build Status](https://travis-ci.org/phpunit/phpunit-dom-assertions.png?branch=master)](https://travis-ci.org/phpunit/phpunit-dom-assertions)
+[![Build Status](https://travis-ci.org/phpunit/phpunit-dom-assertions.svg?branch=master)](https://travis-ci.org/phpunit/phpunit-dom-assertions)
 
 To run the test suite, you need [composer](http://getcomposer.org).
 
