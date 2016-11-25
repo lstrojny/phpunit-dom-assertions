@@ -252,8 +252,8 @@ abstract class PHPUnit_Framework_DOMTestCase extends PHPUnit_Framework_TestCase
                 return $node->text() === '';
             }
 
-            if (preg_match('/^regexp\s*:\s*(.*)/i', $content, $matches)) {
-                return (bool) preg_match($matches[1], $node->text());
+            if (preg_match('/^regexp\s:*\s*(?P<matchName>.*)/i', $content, $matches)) {
+                return (bool) preg_match($matches['matchName'], $node->text());
             }
 
             return strstr($node->text(), $content) !== false;

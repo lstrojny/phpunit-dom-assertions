@@ -1008,6 +1008,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     /**
      * @covers            PHPUnit_Framework_DOMTestCase::assertXPathCount
      * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @expectedExceptionMessage Failed asserting that false is true.
      */
     public function testAssertXPathCountPresentFalse()
     {
@@ -1031,6 +1032,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     /**
      * @covers            PHPUnit_Framework_DOMTestCase::assertXPathCount
      * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @expectedExceptionMessage Failed asserting that true is false.
      */
     public function testAssertXPathCountNotPresentFalse()
     {
@@ -1065,6 +1067,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     /**
      * @covers PHPUnit_Framework_DOMTestCase::assertXPathRegExp
      * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @expectedExceptionMessage Failed asserting that true is false.
      */
     public function testAssertXPathRegExpContentNotPresentTrue()
     {
@@ -1077,6 +1080,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     /**
      * @covers PHPUnit_Framework_DOMTestCase::assertXPathRegExp
      * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @expectedExceptionMessage Failed asserting that false is true.
      */
     public function testAssertXPathRegExpContentNotPresentFalse()
     {
