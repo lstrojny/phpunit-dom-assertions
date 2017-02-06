@@ -7,9 +7,9 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace PHPUnit\Framework;
 
 /**
- * @package    PHPUnit_Framework_DOMTestCase
  * @author     Sebastian Bergmann <sebastian@phpunit.de>
  * @author     Jeff Welch <whatthejeff@gmail.com>
  * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
@@ -17,7 +17,7 @@
  * @link       http://github.com/phpunit/phpunit-dom-assertions
  * @since      Class available since Release 1.0.0
  */
-trait PHPUnit_Framework_DOMTestTrait
+trait DOMTestTrait
 {
 
     /**
@@ -44,7 +44,7 @@ trait PHPUnit_Framework_DOMTestTrait
      */
     public static function assertSelectCount($selector, $count, $actual, $message = '', $isHtml = true)
     {
-        PHPUnit_Framework_DOMTestCase::assertSelectCount($selector, $count, $actual, $message, $isHtml);
+        DOMTestCase::assertSelectCount($selector, $count, $actual, $message, $isHtml);
     }
 
     /**
@@ -61,7 +61,7 @@ trait PHPUnit_Framework_DOMTestTrait
      */
     public static function assertSelectRegExp($selector, $pattern, $count, $actual, $message = '', $isHtml = true)
     {
-        PHPUnit_Framework_DOMTestCase::assertSelectRegExp($selector, $pattern, $count, $actual, $message);
+        DOMTestCase::assertSelectRegExp($selector, $pattern, $count, $actual, $message);
     }
 
     /**
@@ -76,10 +76,10 @@ trait PHPUnit_Framework_DOMTestTrait
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
      *
-     * @throws PHPUnit_Framework_Exception
+     * @throws Exception
      */
     public static function assertSelectEquals($selector, $content, $count, $actual, $message = '', $isHtml = true)
     {
-        PHPUnit_Framework_DOMTestCase::assertSelectEquals($selector, $content, $count, $actual, $message, $isHtml);
+        DOMTestCase::assertSelectEquals($selector, $content, $count, $actual, $message, $isHtml);
     }
 }

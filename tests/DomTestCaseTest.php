@@ -7,9 +7,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace PHPUnit\Framework\Tests;
+
+use PHPUnit\Framework\DOMTestCase;
 
 /**
- * @package    PHPUnit_Framework_DOMTestCase
+ * @package    DOMTestCase
  * @author     Sebastian Bergmann <sebastian@phpunit.de>
  * @author     Jeff Welch <whatthejeff@gmail.com>
  * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
@@ -17,7 +20,7 @@
  * @link       http://github.com/phpunit/phpunit-dom-assertions
  * @since      Class available since Release 1.0.0
  */
-class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
+class DOMTestCaseTest extends DOMTestCase
 {
     private $html;
 
@@ -29,7 +32,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagTypeTrue()
     {
@@ -39,8 +42,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagTypeFalse()
     {
@@ -50,7 +53,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagIdTrue()
     {
@@ -60,8 +63,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagIdFalse()
     {
@@ -71,7 +74,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagStringContentTrue()
     {
@@ -82,8 +85,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagStringContentFalse()
     {
@@ -94,7 +97,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagRegexpContentTrue()
     {
@@ -105,7 +108,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagRegexpModifierContentTrue()
     {
@@ -116,8 +119,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagRegexpContentFalse()
     {
@@ -128,7 +131,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagCdataContentTrue()
     {
@@ -139,8 +142,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagCdataontentFalse()
     {
@@ -153,7 +156,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
 
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagAttributesTrueA()
     {
@@ -164,7 +167,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagAttributesTrueB()
     {
@@ -175,8 +178,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagAttributesFalse()
     {
@@ -187,7 +190,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagAttributesRegexpTrueA()
     {
@@ -198,7 +201,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagAttributesRegexpTrueB()
     {
@@ -209,7 +212,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagAttributesRegexpModifierTrue()
     {
@@ -220,8 +223,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagAttributesRegexpModifierFalse()
     {
@@ -232,8 +235,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagAttributesRegexpFalse()
     {
@@ -244,7 +247,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagAttributesMultiPartClassTrueA()
     {
@@ -256,7 +259,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagAttributesMultiPartClassTrueB()
     {
@@ -268,8 +271,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagAttributesMultiPartClassFalse()
     {
@@ -281,7 +284,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagParentTrue()
     {
@@ -292,8 +295,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagParentFalse()
     {
@@ -304,7 +307,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagMultiplePossibleChildren()
     {
@@ -320,7 +323,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagChildTrue()
     {
@@ -331,8 +334,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagChildFalse()
     {
@@ -343,7 +346,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagAdjacentSiblingTrue()
     {
@@ -354,8 +357,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagAdjacentSiblingFalse()
     {
@@ -367,7 +370,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
 
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagAncestorTrue()
     {
@@ -378,8 +381,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagAncestorFalse()
     {
@@ -390,7 +393,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagDescendantTrue()
     {
@@ -401,8 +404,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagDescendantFalse()
     {
@@ -413,7 +416,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagChildrenCountTrue()
     {
@@ -424,8 +427,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagChildrenCountFalse()
     {
@@ -436,7 +439,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagChildrenLessThanTrue()
     {
@@ -447,8 +450,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagChildrenLessThanFalse()
     {
@@ -459,7 +462,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagChildrenGreaterThanTrue()
     {
@@ -470,8 +473,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagChildrenGreaterThanFalse()
     {
@@ -482,7 +485,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagChildrenOnlyTrue()
     {
@@ -493,8 +496,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagChildrenOnlyFalse()
     {
@@ -505,7 +508,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagTypeIdTrueA()
     {
@@ -515,7 +518,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagTypeIdTrueB()
     {
@@ -525,7 +528,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagTypeIdTrueC()
     {
@@ -535,8 +538,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            \PHPUnit\Framework\DOMTestCase::assertTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertTagTypeIdFalse()
     {
@@ -546,7 +549,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertTagContentAttributes()
     {
@@ -559,7 +562,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertParentContentAttributes()
     {
@@ -573,7 +576,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertChildContentAttributes()
     {
@@ -588,7 +591,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertAdjacentSiblingContentAttributes()
     {
@@ -603,7 +606,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertChildSubChildren()
     {
@@ -615,7 +618,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertAdjacentSiblingSubAdjacentSibling()
     {
@@ -627,7 +630,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertAncestorContentAttributes()
     {
@@ -641,7 +644,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertDescendantContentAttributes()
     {
@@ -655,7 +658,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
      */
     public function testAssertChildrenContentAttributes()
     {
@@ -673,7 +676,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertNotTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertNotTag
      */
     public function testAssertNotTagTypeIdFalse()
     {
@@ -683,8 +686,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertNotTag
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertNotTag
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertNotTagContentAttributes()
     {
@@ -697,7 +700,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountPresentTrue()
     {
@@ -708,8 +711,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectCountPresentFalse()
     {
@@ -720,7 +723,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountNotPresentTrue()
     {
@@ -731,8 +734,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectNotPresentFalse()
     {
@@ -743,7 +746,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountChildTrue()
     {
@@ -754,8 +757,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectCountChildFalse()
     {
@@ -766,7 +769,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountAdjacentSiblingTrue()
     {
@@ -777,8 +780,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectCountAdjacentSiblingFalse()
     {
@@ -789,7 +792,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountDescendantTrue()
     {
@@ -800,8 +803,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectCountDescendantFalse()
     {
@@ -812,7 +815,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountGreaterThanTrue()
     {
@@ -823,8 +826,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectCountGreaterThanFalse()
     {
@@ -835,7 +838,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountGreaterThanEqualToTrue()
     {
@@ -846,8 +849,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectCountGreaterThanEqualToFalse()
     {
@@ -858,7 +861,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountLessThanTrue()
     {
@@ -869,8 +872,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectCountLessThanFalse()
     {
@@ -881,7 +884,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountLessThanEqualToTrue()
     {
@@ -892,8 +895,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectCountLessThanEqualToFalse()
     {
@@ -904,7 +907,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountRangeTrue()
     {
@@ -915,8 +918,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectCount
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectCountRangeFalse()
     {
@@ -927,7 +930,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectEquals
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectEquals
      */
     public function testAssertSelectEqualsContentPresentTrue()
     {
@@ -938,8 +941,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectEquals
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectEquals
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectEqualsContentPresentFalse()
     {
@@ -950,7 +953,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectEquals
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectEquals
      */
     public function testAssertSelectEqualsContentNotPresentTrue()
     {
@@ -961,8 +964,8 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers            PHPUnit_Framework_DOMTestCase::assertSelectEquals
-     * @expectedException PHPUnit_Framework_AssertionFailedError
+     * @covers            PHPUnit\Framework\DOMTestCase::assertSelectEquals
+     * @expectedException \PHPUnit\Framework\AssertionFailedError
      */
     public function testAssertSelectEqualsContentNotPresentFalse()
     {
@@ -973,7 +976,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectRegExp
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectRegExp
      */
     public function testAssertSelectRegExpContentPresentTrue()
     {
@@ -984,7 +987,7 @@ class PHPUnit_Framework_DOMTestCaseTest extends PHPUnit_Framework_DOMTestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_DOMTestCase::assertSelectRegExp
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectRegExp
      */
     public function testAssertSelectRegExpContentPresentFalse()
     {

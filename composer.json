@@ -12,13 +12,17 @@
         {
             "name": "Jeff Welch",
             "email": "whatthejeff@gmail.com"
+        },
+        {
+            "name": "Lars Strojny",
+            "email": "lars@strojny.net"
         }
     ],
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=7.0.0",
         "symfony/css-selector": ">=2.4 <4",
         "symfony/dom-crawler": ">=2.4 <4",
-        "phpunit/phpunit": ">=4.0 <6"
+        "phpunit/phpunit": ">=4.0 <7"
     },
     "autoload": {
         "classmap": [

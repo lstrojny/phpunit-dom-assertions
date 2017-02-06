@@ -18,7 +18,7 @@ A work in progress, drop-in replacement for the following deprecated PHPUnit ass
 
 ## Requirements
 
-The PHPUnit DOM assertions require PHP 5.3.3 or later.
+The PHPUnit DOM assertions require PHP 7.0 or later.
 
 ## Installation
 
@@ -29,17 +29,21 @@ and run the `php composer.phar install` command to install it:
 ~~~json
 {
     "require-dev": {
-        "phpunit/phpunit-dom-assertions": "<1.0"
+        "phpunit/phpunit-dom-assertions": "~2"
     }
 }
 ~~~
 
 ## Usage
 
-Extend `PHPUnit_Framework_DOMTestCase` to use the DOM assertions:
+Extend `PHPUnit\Framework\DOMTestCase` to use the DOM assertions:
 
 ~~~php
-class DOMTest extends PHPUnit_Framework_DOMTestCase
+namespace My\Tests;
+
+use PHPUnit\Framework\DOMTestCase;
+
+class DOMTest extends DOMTestCase
 {
     public function testSelectEquals()
     {
