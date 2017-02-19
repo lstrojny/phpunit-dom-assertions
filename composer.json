@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "php": ">=7.0.0",
+        "php": "~7",
         "symfony/css-selector": ">=2.4 <4",
         "symfony/dom-crawler": ">=2.4 <4",
         "phpunit/phpunit": ">=4.0 <7"
