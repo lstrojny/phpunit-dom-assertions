@@ -7,6 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace PHPUnit\Framework;
 
 /**
@@ -35,11 +36,11 @@ trait DOMTestTrait
      * assertSelectCount("#binder", true, $xml);  // any?
      * assertSelectCount(".binder", 3, $xml);     // exactly 3?
      *
-     * @param array $selector
+     * @param string                $selector
      * @param integer|boolean|array $count
-     * @param mixed $actual
-     * @param string $message
-     * @param boolean $isHtml
+     * @param mixed                 $actual
+     * @param string                $message
+     * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
      */
     public static function assertSelectCount($selector, $count, $actual, $message = '', $isHtml = true)
@@ -51,7 +52,7 @@ trait DOMTestTrait
      * assertSelectRegExp("#binder .name", "/Mike|Derek/", true, $xml); // any?
      * assertSelectRegExp("#binder .name", "/Mike|Derek/", 3, $xml);    // 3?
      *
-     * @param array                 $selector
+     * @param string                $selector
      * @param string                $pattern
      * @param integer|boolean|array $count
      * @param mixed                 $actual
@@ -68,7 +69,7 @@ trait DOMTestTrait
      * assertSelectEquals("#binder .name", "Chuck", true,  $xml);  // any?
      * assertSelectEquals("#binder .name", "Chuck", false, $xml);  // none?
      *
-     * @param array                 $selector
+     * @param string                $selector
      * @param string                $content
      * @param integer|boolean|array $count
      * @param mixed                 $actual
@@ -76,7 +77,7 @@ trait DOMTestTrait
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
      *
-     * @throws Exception
+     * @throws \Exception
      */
     public static function assertSelectEquals($selector, $content, $count, $actual, $message = '', $isHtml = true)
     {
