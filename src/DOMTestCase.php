@@ -7,6 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace PHPUnit\Framework;
 
 use Symfony\Component\DomCrawler\Crawler;
@@ -36,7 +37,7 @@ abstract class DOMTestCase extends TestCase
      * assertSelectCount("#binder", true, $xml);  // any?
      * assertSelectCount(".binder", 3, $xml);     // exactly 3?
      *
-     * @param array                 $selector
+     * @param string                $selector
      * @param integer|boolean|array $count
      * @param mixed                 $actual
      * @param string                $message
@@ -54,7 +55,7 @@ abstract class DOMTestCase extends TestCase
      * assertSelectRegExp("#binder .name", "/Mike|Derek/", true, $xml); // any?
      * assertSelectRegExp("#binder .name", "/Mike|Derek/", 3, $xml);    // 3?
      *
-     * @param array                 $selector
+     * @param string                $selector
      * @param string                $pattern
      * @param integer|boolean|array $count
      * @param mixed                 $actual
@@ -73,7 +74,7 @@ abstract class DOMTestCase extends TestCase
      * assertSelectEquals("#binder .name", "Chuck", true,  $xml);  // any?
      * assertSelectEquals("#binder .name", "Chuck", false, $xml);  // none?
      *
-     * @param array                 $selector
+     * @param string                $selector
      * @param string                $content
      * @param integer|boolean|array $count
      * @param mixed                 $actual
@@ -104,7 +105,7 @@ abstract class DOMTestCase extends TestCase
                 }
 
                 if (preg_match('/^regexp\s*:\s*(.*)/i', $content, $matches)) {
-                    return (bool) preg_match($matches[1], $node->text());
+                    return (bool)preg_match($matches[1], $node->text());
                 }
 
                 return strstr($node->text(), $content) !== false;
@@ -115,9 +116,7 @@ abstract class DOMTestCase extends TestCase
 
         if (is_numeric($count)) {
             self::assertEquals($count, $found, $message);
-        }
-
-        else if (is_bool($count)) {
+        } else if (is_bool($count)) {
             $found = $found > 0;
 
             if ($count) {
@@ -125,11 +124,9 @@ abstract class DOMTestCase extends TestCase
             } else {
                 self::assertFalse($found, $message);
             }
-        }
-
-        else if (is_array($count) &&
+        } else if (is_array($count) &&
             (isset($count['>']) || isset($count['<']) ||
-            isset($count['>=']) || isset($count['<=']))) {
+                isset($count['>=']) || isset($count['<=']))) {
 
             if (isset($count['>'])) {
                 self::assertTrue($found > $count['>'], $message);
@@ -146,9 +143,7 @@ abstract class DOMTestCase extends TestCase
             if (isset($count['<='])) {
                 self::assertTrue($found <= $count['<='], $message);
             }
-        }
-
-        else {
+        } else {
             throw new PHPUnit_Framework_Exception('Invalid count format');
         }
     }
