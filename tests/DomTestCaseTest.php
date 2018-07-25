@@ -996,4 +996,10 @@ class DOMTestCaseTest extends DOMTestCase
 
         $this->assertSelectRegExp($selector, $regexp, false, $this->html);
     }
+
+    public function testDOMDocument()
+    {
+        $dom = new \DOMDocument();
+        $this->assertSelectEquals(false, false, false, $dom);
+    }
 }
