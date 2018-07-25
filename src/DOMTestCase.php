@@ -88,7 +88,7 @@ abstract class DOMTestCase extends TestCase
     {
         $crawler = new Crawler;
 
-        if ($actual instanceof DOMDocument) {
+        if ($actual instanceof \DOMDocument) {
             $crawler->addDocument($actual);
         } else if ($isHtml) {
             $crawler->addHtmlContent($actual);
