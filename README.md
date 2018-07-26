@@ -58,7 +58,7 @@ class DOMTest extends DOMTestCase
 
 ## Tests
 
-[![Build Status](https://travis-ci.org/phpunit/phpunit-dom-assertions.svg?branch=master)](https://travis-ci.org/phpunit/phpunit-dom-assertions)
+[![Build Status](https://travis-ci.org/lstrojny/phpunit-dom-assertions.svg?branch=master)](https://travis-ci.org/lstrojny/phpunit-dom-assertions)
 
 To run the test suite, you need [composer](http://getcomposer.org).
 
