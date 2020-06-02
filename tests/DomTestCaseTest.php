@@ -989,6 +989,17 @@ class DOMTestCaseTest extends DOMTestCase
     /**
      * @covers \PHPUnit\Framework\DOMTestCase::assertSelectRegExp
      */
+    public function testAssertNormalizedWhitespace()
+    {
+        $selector = 'span.test_class';
+        $regexp   = '/^Test.*Text$/';
+
+        $this->assertSelectRegExp($selector, $regexp, true, $this->html);
+    }
+
+    /**
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectRegExp
+     */
     public function testAssertSelectRegExpContentPresentFalse()
     {
         $selector = 'span.test_class';

@@ -100,7 +100,7 @@ abstract class DOMTestCase extends TestCase
 
         if (is_string($content)) {
             $crawler = $crawler->reduce(function (Crawler $node, $i) use ($content) {
-                $text = $node->text(null, false);
+                $text = $node->text(null, true);
 
                 if ($content === '') {
                     return $text === '';
