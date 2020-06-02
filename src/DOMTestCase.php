@@ -100,15 +100,17 @@ abstract class DOMTestCase extends TestCase
 
         if (is_string($content)) {
             $crawler = $crawler->reduce(function (Crawler $node, $i) use ($content) {
+                $text = $node->text(null, false);
+
                 if ($content === '') {
-                    return $node->text() === '';
+                    return $text === '';
                 }
 
                 if (preg_match('/^regexp\s*:\s*(.*)/i', $content, $matches)) {
-                    return (bool)preg_match($matches[1], $node->text());
+                    return (bool)preg_match($matches[1], $text);
                 }
 
-                return strstr($node->text(), $content) !== false;
+                return strstr($text, $content) !== false;
             });
         }
 
