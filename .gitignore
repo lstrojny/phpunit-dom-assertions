@@ -2,3 +2,4 @@
 /composer.phar
 /phpunit.xml
 /vendor
+/.phpunit.result.cache

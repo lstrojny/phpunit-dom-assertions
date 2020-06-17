@@ -19,15 +19,18 @@
         }
     ],
     "require": {
-        "php": "~7",
+        "php": ">=7.1",
         "symfony/css-selector": ">=2.4 <5",
         "symfony/dom-crawler": ">=2.4 <5",
-        "phpunit/phpunit": ">=4.0 <7"
+        "phpunit/phpunit": ">=4.0 <9"
     },
     "autoload": {
         "classmap": [
             "src/"
         ]
+    },
+    "autoload-dev": {
+        "classmap": ["tests"]
     },
     "extra": {
         "branch-alias": {
