@@ -22,7 +22,7 @@
         "php": ">=7.1",
         "symfony/css-selector": ">=2.4 <5",
         "symfony/dom-crawler": ">=2.4 <5",
-        "phpunit/phpunit": ">=4.0 <9"
+        "phpunit/phpunit": ">=4.0 <10"
     },
     "autoload": {
         "classmap": [
