@@ -1,0 +1,18 @@
+includes:
+    - phar://phpstan.phar/conf/config.levelmax.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+
+parameters:
+    tipsOfTheDay: false
+    paths:
+        - src/
+        - tests/
+    excludes_analyse:
+        - test/fixtures/*
+        - test/tmp/*
+    ignoreErrors:
+        -
+            message: "#^Unreachable statement - code above always terminates\\.$#"
+            count: 56
+            path: tests/DOMTestCaseTest.php

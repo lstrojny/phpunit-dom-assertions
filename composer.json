@@ -38,6 +38,9 @@
         }
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^5.1"
+        "phpstan/phpstan": "^0.12.68",
+        "phpstan/phpstan-deprecation-rules": "^0.12.6",
+        "phpstan/phpstan-phpunit": "^0.12.17",
+        "symfony/phpunit-bridge": "^5.2.1"
     }
 }
