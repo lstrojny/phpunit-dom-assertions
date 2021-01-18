@@ -41,7 +41,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagTypeTrue(): void
     {
@@ -51,7 +51,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagTypeFalse(): void
     {
@@ -62,7 +62,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagIdTrue(): void
     {
@@ -72,7 +72,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagIdFalse(): void
     {
@@ -83,7 +83,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagStringContentTrue(): void
     {
@@ -96,7 +96,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagStringContentFalse(): void
     {
@@ -110,7 +110,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagRegexpContentTrue(): void
     {
@@ -123,7 +123,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagRegexpModifierContentTrue(): void
     {
@@ -136,7 +136,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagRegexpContentFalse(): void
     {
@@ -150,7 +150,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagCdataContentTrue(): void
     {
@@ -163,7 +163,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagCdataontentFalse(): void
     {
@@ -177,7 +177,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAttributesTrueA(): void
     {
@@ -190,7 +190,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAttributesTrueB(): void
     {
@@ -203,7 +203,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAttributesFalse(): void
     {
@@ -217,7 +217,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAttributesRegexpTrueA(): void
     {
@@ -230,7 +230,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAttributesRegexpTrueB(): void
     {
@@ -243,7 +243,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAttributesRegexpModifierTrue(): void
     {
@@ -256,7 +256,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAttributesRegexpModifierFalse(): void
     {
@@ -270,7 +270,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAttributesRegexpFalse(): void
     {
@@ -284,7 +284,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAttributesMultiPartClassTrueA(): void
     {
@@ -298,7 +298,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAttributesMultiPartClassTrueB(): void
     {
@@ -312,7 +312,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAttributesMultiPartClassFalse(): void
     {
@@ -327,7 +327,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagParentTrue(): void
     {
@@ -340,7 +340,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagParentFalse(): void
     {
@@ -354,7 +354,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagMultiplePossibleChildren(): void
     {
@@ -370,7 +370,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagChildTrue(): void
     {
@@ -383,7 +383,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagChildFalse(): void
     {
@@ -397,7 +397,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAdjacentSiblingTrue(): void
     {
@@ -410,7 +410,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAdjacentSiblingFalse(): void
     {
@@ -424,7 +424,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAncestorTrue(): void
     {
@@ -437,7 +437,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagAncestorFalse(): void
     {
@@ -451,7 +451,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagDescendantTrue(): void
     {
@@ -464,7 +464,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagDescendantFalse(): void
     {
@@ -478,7 +478,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagChildrenCountTrue(): void
     {
@@ -491,7 +491,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagChildrenCountFalse(): void
     {
@@ -505,7 +505,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagChildrenLessThanTrue(): void
     {
@@ -518,7 +518,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagChildrenLessThanFalse(): void
     {
@@ -532,7 +532,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagChildrenGreaterThanTrue(): void
     {
@@ -545,7 +545,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagChildrenGreaterThanFalse(): void
     {
@@ -559,7 +559,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagChildrenOnlyTrue(): void
     {
@@ -572,7 +572,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagChildrenOnlyFalse(): void
     {
@@ -586,7 +586,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagTypeIdTrueA(): void
     {
@@ -596,7 +596,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagTypeIdTrueB(): void
     {
@@ -606,7 +606,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagTypeIdTrueC(): void
     {
@@ -616,7 +616,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagTypeIdFalse(): void
     {
@@ -627,7 +627,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertTagContentAttributes(): void
     {
@@ -644,7 +644,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertParentContentAttributes(): void
     {
@@ -662,7 +662,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertChildContentAttributes(): void
     {
@@ -683,7 +683,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertAdjacentSiblingContentAttributes(): void
     {
@@ -704,7 +704,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertChildSubChildren(): void
     {
@@ -720,7 +720,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertAdjacentSiblingSubAdjacentSibling(): void
     {
@@ -736,7 +736,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertAncestorContentAttributes(): void
     {
@@ -754,7 +754,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertDescendantContentAttributes(): void
     {
@@ -772,7 +772,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertTag
      */
     public function testAssertChildrenContentAttributes(): void
     {
@@ -795,7 +795,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertNotTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertNotTag
      */
     public function testAssertNotTagTypeIdFalse(): void
     {
@@ -805,7 +805,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertNotTag
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertNotTag
      */
     public function testAssertNotTagContentAttributes(): void
     {
@@ -823,7 +823,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountPresentTrue(): void
     {
@@ -834,7 +834,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountPresentFalse(): void
     {
@@ -846,7 +846,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountNotPresentTrue(): void
     {
@@ -857,7 +857,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectNotPresentFalse(): void
     {
@@ -869,7 +869,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountChildTrue(): void
     {
@@ -880,7 +880,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountChildFalse(): void
     {
@@ -892,7 +892,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountAdjacentSiblingTrue(): void
     {
@@ -903,7 +903,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountAdjacentSiblingFalse(): void
     {
@@ -915,7 +915,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountDescendantTrue(): void
     {
@@ -926,7 +926,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountDescendantFalse(): void
     {
@@ -938,7 +938,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountGreaterThanTrue(): void
     {
@@ -949,7 +949,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountGreaterThanFalse(): void
     {
@@ -961,7 +961,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountGreaterThanEqualToTrue(): void
     {
@@ -972,7 +972,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountGreaterThanEqualToFalse(): void
     {
@@ -984,7 +984,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountLessThanTrue(): void
     {
@@ -995,7 +995,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountLessThanFalse(): void
     {
@@ -1007,7 +1007,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountLessThanEqualToTrue(): void
     {
@@ -1018,7 +1018,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountLessThanEqualToFalse(): void
     {
@@ -1030,7 +1030,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountRangeTrue(): void
     {
@@ -1041,7 +1041,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectCount
      */
     public function testAssertSelectCountRangeFalse(): void
     {
@@ -1053,7 +1053,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectEquals
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectEquals
      */
     public function testAssertSelectEqualsContentPresentTrue(): void
     {
@@ -1064,7 +1064,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectEquals
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectEquals
      */
     public function testAssertSelectEqualsContentPresentFalse(): void
     {
@@ -1076,7 +1076,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectEquals
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectEquals
      */
     public function testAssertSelectEqualsContentNotPresentTrue(): void
     {
@@ -1087,7 +1087,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectEquals
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectEquals
      */
     public function testAssertSelectEqualsContentNotPresentFalse(): void
     {
@@ -1099,7 +1099,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectRegExp
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectRegExp
      */
     public function testAssertSelectRegExpContentPresentTrue(): void
     {
@@ -1110,7 +1110,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectRegExp
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectRegExp
      */
     public function testAssertNormalizedWhitespace(): void
     {
@@ -1121,7 +1121,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectRegExp
+     * @covers \PHPUnit\Framework\DOMTestTrait::assertSelectRegExp
      */
     public function testAssertSelectRegExpContentPresentFalse(): void
     {

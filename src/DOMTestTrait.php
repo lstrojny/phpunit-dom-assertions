@@ -10,6 +10,8 @@
 
 namespace PHPUnit\Framework;
 
+use Symfony\Component\DomCrawler\Crawler;
+
 /**
  * @author     Sebastian Bergmann <sebastian@phpunit.de>
  * @author     Jeff Welch <whatthejeff@gmail.com>
@@ -20,7 +22,6 @@ namespace PHPUnit\Framework;
  */
 trait DOMTestTrait
 {
-
     /**
      * Assert the presence, absence, or count of elements in a document matching
      * the CSS $selector, regardless of the contents of those elements.
@@ -42,10 +43,14 @@ trait DOMTestTrait
      * @param string                $message
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
+     *
+     * @return void
      */
     public static function assertSelectCount($selector, $count, $actual, $message = '', $isHtml = true)
     {
-        DOMTestCase::assertSelectCount($selector, $count, $actual, $message, $isHtml);
+        self::assertSelectEquals(
+            $selector, null, $count, $actual, $message, $isHtml
+        );
     }
 
     /**
@@ -59,10 +64,14 @@ trait DOMTestTrait
      * @param string                $message
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
+     *
+     * @return void
      */
     public static function assertSelectRegExp($selector, $pattern, $count, $actual, $message = '', $isHtml = true)
     {
-        DOMTestCase::assertSelectRegExp($selector, $pattern, $count, $actual, $message);
+        self::assertSelectEquals(
+            $selector, "regexp:$pattern", $count, $actual, $message, $isHtml
+        );
     }
 
     /**
@@ -75,12 +84,73 @@ trait DOMTestTrait
      * @param mixed                 $actual
      * @param string                $message
      * @param boolean               $isHtml
+     * @return void
+     * @throws Exception
+     *
      * @since Method available since Release 1.0.0
      *
-     * @throws \Exception
      */
     public static function assertSelectEquals($selector, $content, $count, $actual, $message = '', $isHtml = true)
     {
-        DOMTestCase::assertSelectEquals($selector, $content, $count, $actual, $message, $isHtml);
+        $crawler = new Crawler;
+
+        if ($actual instanceof \DOMDocument) {
+            $crawler->addDocument($actual);
+        } elseif ($isHtml) {
+            $crawler->addHtmlContent($actual);
+        } else {
+            $crawler->addXmlContent($actual);
+        }
+
+        $crawler = $crawler->filter($selector);
+
+        if (is_string($content)) {
+            $crawler = $crawler->reduce(static function (Crawler $node) use ($content) {
+                $text = $node->text(null, true);
+
+                if ($content === '') {
+                    return $text === '';
+                }
+
+                if (preg_match('/^regexp\s*:\s*(.*)/i', $content, $matches)) {
+                    return (bool)preg_match($matches[1], $text);
+                }
+
+                return strstr($text, $content) !== false;
+            });
+        }
+
+        $found = count($crawler);
+
+        if (is_numeric($count)) {
+            Assert::assertEquals($count, $found, $message);
+        } elseif (is_bool($count)) {
+            if ($count) {
+                Assert::assertGreaterThan(0, $found, $message);
+            } else {
+                Assert::assertEquals(0, $found, $message);
+            }
+        } elseif (is_array($count) &&
+            (isset($count['>']) || isset($count['<']) ||
+                isset($count['>=']) || isset($count['<=']))) {
+
+            if (isset($count['>'])) {
+                Assert::assertGreaterThan($count['>'], $found, $message);
+            }
+
+            if (isset($count['>='])) {
+                Assert::assertGreaterThanOrEqual($count['>='], $found, $message);
+            }
+
+            if (isset($count['<'])) {
+                Assert::assertLessThan($count['<'], $found, $message);
+            }
+
+            if (isset($count['<='])) {
+                Assert::assertLessThanOrEqual($count['<='], $found, $message);
+            }
+        } else {
+            throw new Exception('Invalid count format');
+        }
     }
 }
