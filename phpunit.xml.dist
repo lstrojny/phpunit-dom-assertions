@@ -24,6 +24,6 @@
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener"/>
     </listeners>
     <php>
-        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[total]=0"/>
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[direct]=0"/>
     </php>
 </phpunit>
