@@ -38,16 +38,18 @@ abstract class DOMTestCase extends TestCase
      * assertSelectCount(".binder", 3, $xml);     // exactly 3?
      *
      * @param string                $selector
-     * @param integer|boolean|array $count
+     * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
      * @param mixed                 $actual
      * @param string                $message
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
+     *
+     * @return void
      */
     public static function assertSelectCount($selector, $count, $actual, $message = '', $isHtml = true)
     {
         self::assertSelectEquals(
-            $selector, true, $count, $actual, $message, $isHtml
+            $selector, null, $count, $actual, $message, $isHtml
         );
     }
 
@@ -57,11 +59,13 @@ abstract class DOMTestCase extends TestCase
      *
      * @param string                $selector
      * @param string                $pattern
-     * @param integer|boolean|array $count
+     * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
      * @param mixed                 $actual
      * @param string                $message
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
+     *
+     * @return void
      */
     public static function assertSelectRegExp($selector, $pattern, $count, $actual, $message = '', $isHtml = true)
     {
@@ -75,14 +79,16 @@ abstract class DOMTestCase extends TestCase
      * assertSelectEquals("#binder .name", "Chuck", false, $xml);  // none?
      *
      * @param string                $selector
-     * @param string                $content
-     * @param integer|boolean|array $count
+     * @param string|null           $content
+     * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
      * @param mixed                 $actual
      * @param string                $message
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
      *
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit\Framework\Exception
+     *
+     * @return void
      */
     public static function assertSelectEquals($selector, $content, $count, $actual, $message = '', $isHtml = true)
     {
@@ -146,7 +152,7 @@ abstract class DOMTestCase extends TestCase
                 self::assertTrue($found <= $count['<='], $message);
             }
         } else {
-            throw new PHPUnit_Framework_Exception('Invalid count format');
+            throw new \PHPUnit\Framework\Exception('Invalid count format');
         }
     }
 }

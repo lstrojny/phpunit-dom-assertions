@@ -23,14 +23,21 @@ use PHPUnit\Framework\DOMTestCase;
  */
 class DOMTestCaseTest extends DOMTestCase
 {
+    /**
+     * @var string
+     */
     private $html;
 
     /** @before */
     protected function backwardsCompatibleSetUp(): void
     {
-        $this->html = file_get_contents(
+        $html = file_get_contents(
             __DIR__ . '/_files/SelectorAssertionsFixture.html'
         );
+
+        self::assertNotFalse($html);
+
+        $this->html = $html;
     }
 
     /**
@@ -798,7 +805,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers PHPUnit\Framework\DOMTestCase::assertNotTag
+     * @covers \PHPUnit\Framework\DOMTestCase::assertNotTag
      */
     public function testAssertNotTagContentAttributes(): void
     {
@@ -827,7 +834,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountPresentFalse(): void
     {
@@ -850,7 +857,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectNotPresentFalse(): void
     {
@@ -873,7 +880,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountChildFalse(): void
     {
@@ -896,7 +903,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountAdjacentSiblingFalse(): void
     {
@@ -919,7 +926,7 @@ class DOMTestCaseTest extends DOMTestCase
     }
 
     /**
-     * @covers PHPUnit\Framework\DOMTestCase::assertSelectCount
+     * @covers \PHPUnit\Framework\DOMTestCase::assertSelectCount
      */
     public function testAssertSelectCountDescendantFalse(): void
     {
@@ -1127,6 +1134,6 @@ class DOMTestCaseTest extends DOMTestCase
     public function testDOMDocument(): void
     {
         $dom = new \DOMDocument();
-        $this->assertSelectEquals(false, false, false, $dom);
+        $this->assertSelectEquals('', null, false, $dom);
     }
 }

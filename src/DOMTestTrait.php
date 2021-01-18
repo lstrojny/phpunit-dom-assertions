@@ -37,7 +37,7 @@ trait DOMTestTrait
      * assertSelectCount(".binder", 3, $xml);     // exactly 3?
      *
      * @param string                $selector
-     * @param integer|boolean|array $count
+     * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
      * @param mixed                 $actual
      * @param string                $message
      * @param boolean               $isHtml
@@ -54,7 +54,7 @@ trait DOMTestTrait
      *
      * @param string                $selector
      * @param string                $pattern
-     * @param integer|boolean|array $count
+     * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
      * @param mixed                 $actual
      * @param string                $message
      * @param boolean               $isHtml
@@ -70,8 +70,8 @@ trait DOMTestTrait
      * assertSelectEquals("#binder .name", "Chuck", false, $xml);  // none?
      *
      * @param string                $selector
-     * @param string                $content
-     * @param integer|boolean|array $count
+     * @param string|null           $content
+     * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
      * @param mixed                 $actual
      * @param string                $message
      * @param boolean               $isHtml
