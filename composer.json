@@ -1,7 +1,14 @@
 {
     "name": "phpunit/phpunit-dom-assertions",
     "description": "DOM assertions for PHPUnit",
-    "keywords": ["dom","xpath","css","assertions","phpunit","tests"],
+    "keywords": [
+        "dom",
+        "xpath",
+        "css",
+        "assertions",
+        "phpunit",
+        "tests"
+    ],
     "homepage": "http://github.com/phpunit/phpunit-dom-assertions",
     "license": "MIT",
     "authors": [
@@ -20,9 +27,20 @@
     ],
     "require": {
         "php": ">=7.1",
+        "phpunit/phpunit": "^6.5.14 || ^7.5.20 || ^8.5 || ^9.0",
         "symfony/css-selector": "^4.4 || ^5.0",
-        "symfony/dom-crawler": "^4.4 || ^5.0",
-        "phpunit/phpunit": "^6.5.14 || ^7.5.20 || ^8.5 || ^9.0"
+        "symfony/dom-crawler": "^4.4 || ^5.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.68",
+        "phpstan/phpstan-deprecation-rules": "^0.12.6",
+        "phpstan/phpstan-phpunit": "^0.12.17",
+        "symfony/phpunit-bridge": "^5.2.1"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     },
     "autoload": {
         "classmap": [
@@ -30,17 +48,8 @@
         ]
     },
     "autoload-dev": {
-        "classmap": ["tests"]
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
-    },
-    "require-dev": {
-        "phpstan/phpstan": "^0.12.68",
-        "phpstan/phpstan-deprecation-rules": "^0.12.6",
-        "phpstan/phpstan-phpunit": "^0.12.17",
-        "symfony/phpunit-bridge": "^5.2.1"
+        "classmap": [
+            "tests"
+        ]
     }
 }
