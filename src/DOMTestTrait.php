@@ -42,6 +42,8 @@ trait DOMTestTrait
      * @param string                $message
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
+     *
+     * @return void
      */
     public static function assertSelectCount($selector, $count, $actual, $message = '', $isHtml = true)
     {
@@ -59,6 +61,8 @@ trait DOMTestTrait
      * @param string                $message
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
+     *
+     * @return void
      */
     public static function assertSelectRegExp($selector, $pattern, $count, $actual, $message = '', $isHtml = true)
     {
@@ -78,6 +82,8 @@ trait DOMTestTrait
      * @since Method available since Release 1.0.0
      *
      * @throws \Exception
+     *
+     * @return void
      */
     public static function assertSelectEquals($selector, $content, $count, $actual, $message = '', $isHtml = true)
     {

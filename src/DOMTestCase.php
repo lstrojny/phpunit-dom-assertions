@@ -105,7 +105,7 @@ abstract class DOMTestCase extends TestCase
         $crawler = $crawler->filter($selector);
 
         if (is_string($content)) {
-            $crawler = $crawler->reduce(function (Crawler $node, $i) use ($content) {
+            $crawler = $crawler->reduce(static function (Crawler $node) use ($content) {
                 $text = $node->text(null, true);
 
                 if ($content === '') {
@@ -125,31 +125,29 @@ abstract class DOMTestCase extends TestCase
         if (is_numeric($count)) {
             self::assertEquals($count, $found, $message);
         } else if (is_bool($count)) {
-            $found = $found > 0;
-
             if ($count) {
-                self::assertTrue($found, $message);
+                self::assertGreaterThan(0, $found, $message);
             } else {
-                self::assertFalse($found, $message);
+                self::assertEquals(0, $found, $message);
             }
         } else if (is_array($count) &&
             (isset($count['>']) || isset($count['<']) ||
                 isset($count['>=']) || isset($count['<=']))) {
 
             if (isset($count['>'])) {
-                self::assertTrue($found > $count['>'], $message);
+                self::assertGreaterThan($count['>'], $found, $message);
             }
 
             if (isset($count['>='])) {
-                self::assertTrue($found >= $count['>='], $message);
+                self::assertGreaterThanOrEqual($count['>='], $found, $message);
             }
 
             if (isset($count['<'])) {
-                self::assertTrue($found < $count['<'], $message);
+                self::assertLessThan($count['<'], $found, $message);
             }
 
             if (isset($count['<='])) {
-                self::assertTrue($found <= $count['<='], $message);
+                self::assertLessThanOrEqual($count['<='], $found, $message);
             }
         } else {
             throw new \PHPUnit\Framework\Exception('Invalid count format');
