@@ -1,6 +1,7 @@
 {
     "name": "phpunit/phpunit-dom-assertions",
     "description": "DOM assertions for PHPUnit",
+    "license": "MIT",
     "keywords": [
         "dom",
         "xpath",
@@ -9,8 +10,6 @@
         "phpunit",
         "tests"
     ],
-    "homepage": "http://github.com/phpunit/phpunit-dom-assertions",
-    "license": "MIT",
     "authors": [
         {
             "name": "Sebastian Bergmann",
@@ -25,6 +24,7 @@
             "email": "lars@strojny.net"
         }
     ],
+    "homepage": "http://github.com/phpunit/phpunit-dom-assertions",
     "require": {
         "php": ">=7.1",
         "ext-dom": "*",
@@ -38,11 +38,6 @@
         "phpstan/phpstan-phpunit": "^1.0.0",
         "symfony/phpunit-bridge": "^5.4.0 || ^6.0.0"
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        }
-    },
     "autoload": {
         "classmap": [
             "src/"
@@ -52,5 +47,10 @@
         "classmap": [
             "tests/"
         ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }
