@@ -39,7 +39,7 @@ abstract class DOMTestCase extends TestCase
      *
      * @param string                $selector
      * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
-     * @param mixed                 $actual
+     * @param \DOMDocument|string   $actual
      * @param string                $message
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
@@ -60,7 +60,7 @@ abstract class DOMTestCase extends TestCase
      * @param string                $selector
      * @param string                $pattern
      * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
-     * @param mixed                 $actual
+     * @param \DOMDocument|string   $actual
      * @param string                $message
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
@@ -81,7 +81,7 @@ abstract class DOMTestCase extends TestCase
      * @param string                $selector
      * @param string|null           $content
      * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
-     * @param mixed                 $actual
+     * @param \DOMDocument|string   $actual
      * @param string                $message
      * @param boolean               $isHtml
      * @since Method available since Release 1.0.0
@@ -96,7 +96,7 @@ abstract class DOMTestCase extends TestCase
 
         if ($actual instanceof \DOMDocument) {
             $crawler->addDocument($actual);
-        } else if ($isHtml) {
+        } elseif ($isHtml) {
             $crawler->addHtmlContent($actual);
         } else {
             $crawler->addXmlContent($actual);
