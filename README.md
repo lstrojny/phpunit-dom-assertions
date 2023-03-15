@@ -58,7 +58,7 @@ class DOMTest extends DOMTestCase
 
 ## Tests
 
-[![Integrate](https://github.com/lstrojny/phpunit-dom-assertions/workflows/Integrate/badge.svg?branch=master)](https://github.com/lstrojny/phpunit-dom-assertions/actions)
+[![Integrate](https://github.com/lstrojny/phpunit-dom-assertions/workflows/CI/badge.svg?branch=master)](https://github.com/lstrojny/phpunit-dom-assertions/actions)
 
 To run the test suite, you need [composer](http://getcomposer.org).
 
