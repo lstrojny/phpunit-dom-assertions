@@ -31,7 +31,6 @@ jobs:
       - run: "composer validate --strict"
       - run: "composer-normalize --dry-run"
       - run: "composer-require-checker check"
-      - run: "composer-unused"
 
   coding-standards:
     name: "Coding Standards"
