@@ -8,12 +8,3 @@ parameters:
     paths:
         - src/
         - tests/
-    excludePaths:
-        analyseAndScan:
-            - test/fixtures/*
-            - test/tmp/*
-    ignoreErrors:
-        -
-            message: "#^Unreachable statement - code above always terminates\\.$#"
-            count: 56
-            path: tests/DOMTestCaseTest.php

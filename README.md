@@ -1,69 +1,43 @@
 # PHPUnit DOM Assertions
 
+[![Latest Stable Version](https://img.shields.io/packagist/v/phpunit/phpunit-dom-assertions.svg)](https://packagist.org/packages/phpunit/phpunit-dom-assertions)
+[![Downloads](https://img.shields.io/packagist/dt/phpunit/phpunit-dom-assertions.svg)](https://packagist.org/packages/phpunit/phpunit-dom-assertions)
+[![Integrate](https://github.com/lstrojny/phpunit-dom-assertions/workflows/CI/badge.svg?branch=master)](https://github.com/lstrojny/phpunit-dom-assertions/actions)
+
 A work in progress, drop-in replacement for the following deprecated PHPUnit assertions:
 
  * `assertSelectCount()`
  * `assertSelectRegExp()`
  * `assertSelectEquals()`
- * `assertTag()` (not yet ported)
- * `assertNotTag()` (not yet ported)
-
-# TODO
-
- * Port `assertTag()` and `assertNotTag()`.
- * Improve tests.
- * Improve error messages.
- * Improve comments and documentation.
- * Add XPath support.
-
-## Requirements
-
-The PHPUnit DOM assertions require PHP 7.0 or later.
 
 ## Installation
 
-The recommended way to install the PHPUnit DOM assertions is
-[through composer](http://getcomposer.org). Just create a `composer.json` file
-and run the `php composer.phar install` command to install it:
-
-~~~json
-{
-    "require-dev": {
-        "phpunit/phpunit-dom-assertions": "~2"
-    }
-}
-~~~
+```console
+$ composer require --dev phpunit/phpunit-dom-assertions
+```
 
 ## Usage
 
 Extend `PHPUnit\Framework\DOMTestCase` to use the DOM assertions:
 
-~~~php
+```php
 namespace My\Tests;
 
-use PHPUnit\Framework\DOMTestCase;
+use PHPUnit\Framework\DOMAssert;
+use PHPUnit\Framework\TestCase;
 
-class DOMTest extends DOMTestCase
+final class DOMTest extends TestCase
 {
-    public function testSelectEquals()
+    public function testSelectEquals(): void
     {
         $html = file_get_contents('test.html');
         $selector = 'span.test_class';
         $content  = 'Test Class Text';
 
-        $this->assertSelectEquals($selector, $content, true, $html);
+        DOMAssert::assertSelectEquals($selector, $content, true, $html);
     }
 }
-~~~
-
-## Tests
-
-[![Integrate](https://github.com/lstrojny/phpunit-dom-assertions/workflows/Integrate/badge.svg?branch=master)](https://github.com/lstrojny/phpunit-dom-assertions/actions)
-
-To run the test suite, you need [composer](http://getcomposer.org).
-
-    $ php composer.phar install
-    $ vendor/bin/phpunit
+```
 
 ## License
 
