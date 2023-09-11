@@ -34,7 +34,7 @@ final class DOMAssertTest extends TestCase
             __DIR__.'/_files/SelectorAssertionsFixture.html'
         );
 
-        static::assertNotFalse($html);
+        self::assertNotFalse($html);
 
         $this->html = $html;
     }
