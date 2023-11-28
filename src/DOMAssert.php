@@ -84,6 +84,26 @@ final class DOMAssert
         );
     }
 
+    public static function assertXPathEquals(
+        string $selector,
+        ?string $content,
+        bool|int $count,
+        \DOMDocument|string $actual,
+        string $message = '',
+        bool $isHtml = true,
+        bool $isXPath = false
+    ): void {
+        self::assertSelectEquals(
+            $selector,
+            $content,
+            $count,
+            $actual,
+            $message,
+            $isHtml,
+            $isXPath
+        );
+    }
+
     /**
      * assertSelectEquals("#binder .name", "Chuck", true,  $xml);  // any?
      * assertSelectEquals("#binder .name", "Chuck", false, $xml);  // none?
@@ -98,7 +118,8 @@ final class DOMAssert
         array|bool|int $count,
         \DOMDocument|string $actual,
         string $message = '',
-        bool $isHtml = true
+        bool $isHtml = true,
+        bool $isXPath = false
     ): void {
         $crawler = new Crawler();
 
@@ -110,7 +131,11 @@ final class DOMAssert
             $crawler->addXmlContent($actual);
         }
 
-        $crawler = $crawler->filter($selector);
+        if (true === $isXPath) {
+            $crawler = $crawler->filterXPath($selector);
+        } else {
+            $crawler = $crawler->filter($selector);
+        }
 
         if (\is_string($content)) {
             $crawler = $crawler->reduce(static function (Crawler $node) use ($content) {
