@@ -8,6 +8,9 @@ A work in progress, drop-in replacement for the following deprecated PHPUnit ass
 
  * `assertSelectCount()`
  * `assertSelectRegExp()`
+ * `assertXPathCount()`
+ * `assertXPathEquals()`
+ * `assertXPathSelectRegExp()`
  * `assertSelectEquals()`
 
 ## Installation

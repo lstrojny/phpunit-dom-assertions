@@ -85,6 +85,77 @@ final class DOMAssert
     }
 
     /**
+     * @param array{"<"?: int, ">"?: int, "<="?: int, ">="?: int}|bool|int $count
+     *
+     * @throws Exception
+     */
+    public static function assertXPathCount(
+        string $selector,
+        array|bool|int $count,
+        \DOMDocument|string $actual,
+        string $message = '',
+        bool $isHtml = true
+    ): void {
+        self::assertSelectEquals(
+            $selector,
+            null,
+            $count,
+            $actual,
+            $message,
+            $isHtml,
+            true
+        );
+    }
+
+    /**
+     * @param array{"<"?: int, ">"?: int, "<="?: int, ">="?: int}|bool|int $count
+     *
+     * @throws Exception
+     */
+    public static function assertXPathEquals(
+        string $selector,
+        string $content,
+        array|bool|int $count,
+        \DOMDocument|string $actual,
+        string $message = '',
+        bool $isHtml = true
+    ): void {
+        self::assertSelectEquals(
+            $selector,
+            $content,
+            $count,
+            $actual,
+            $message,
+            $isHtml,
+            true
+        );
+    }
+
+    /**
+     * @param array{"<"?: int, ">"?: int, "<="?: int, ">="?: int}|bool|int $count
+     *
+     * @throws Exception
+     */
+    public static function assertXPathSelectRegExp(
+        string $xpath,
+        string $pattern,
+        array|bool|int $count,
+        \DOMDocument|string $actual,
+        string $message = '',
+        bool $isHtml = true
+    ): void {
+        self::assertSelectEquals(
+            $xpath,
+            "regexp:{$pattern}",
+            $count,
+            $actual,
+            $message,
+            $isHtml,
+            true
+        );
+    }
+
+    /**
      * assertSelectEquals("#binder .name", "Chuck", true,  $xml);  // any?
      * assertSelectEquals("#binder .name", "Chuck", false, $xml);  // none?
      *
@@ -98,7 +169,8 @@ final class DOMAssert
         array|bool|int $count,
         \DOMDocument|string $actual,
         string $message = '',
-        bool $isHtml = true
+        bool $isHtml = true,
+        bool $isXPath = false
     ): void {
         $crawler = new Crawler();
 
@@ -110,7 +182,11 @@ final class DOMAssert
             $crawler->addXmlContent($actual);
         }
 
-        $crawler = $crawler->filter($selector);
+        if (true === $isXPath) {
+            $crawler = $crawler->filterXPath($selector);
+        } else {
+            $crawler = $crawler->filter($selector);
+        }
 
         if (\is_string($content)) {
             $crawler = $crawler->reduce(static function (Crawler $node) use ($content) {

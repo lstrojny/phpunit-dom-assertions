@@ -356,4 +356,68 @@ final class DOMAssertTest extends TestCase
 
         DOMAssert::assertSelectRegExp($selector, $regexp, false, $this->html);
     }
+
+    /**
+     * @covers \PHPUnit\Framework\DOMAssert::assertXPathCount
+     */
+    public function testAssertXPathCountTrue(): void
+    {
+        $xpath = '//li[@class="my_li"]';
+
+        DOMAssert::assertXPathCount($xpath, 4, $this->html);
+    }
+
+    /**
+     * @covers \PHPUnit\Framework\DOMAssert::assertXPathCount
+     */
+    public function testAssertXPathCountZero(): void
+    {
+        $xpath = '//li[@class="nonexistent_element"]';
+
+        DOMAssert::assertXPathCount($xpath, 0, $this->html);
+    }
+
+    /**
+     * @covers \PHPUnit\Framework\DOMAssert::assertXPathEquals
+     */
+    public function testAssertSelectXPathContentPresentTrue(): void
+    {
+        $xpath = '//span[@class="test_class"]';
+        $content = 'Test Class Text';
+
+        DOMAssert::assertXPathEquals($xpath, $content, true, $this->html);
+    }
+
+    /**
+     * @covers \PHPUnit\Framework\DOMAssert::assertXPathEquals
+     */
+    public function testAssertSelectXPathContentPresentFalse(): void
+    {
+        $xpath = '//span[@class="test_class"]';
+        $content = 'nonexistent string';
+
+        DOMAssert::assertXPathEquals($xpath, $content, false, $this->html);
+    }
+
+    /**
+     * @covers \PHPUnit\Framework\DOMAssert::assertXPathSelectRegExp
+     */
+    public function testAssertXPathSelectRegExpContentPresentTrue(): void
+    {
+        $xpath = '//span[@class="test_class"]';
+        $regexp = '/Test.*Text/';
+
+        DOMAssert::assertXPathSelectRegExp($xpath, $regexp, true, $this->html);
+    }
+
+    /**
+     * @covers \PHPUnit\Framework\DOMAssert::assertXPathSelectRegExp
+     */
+    public function testAssertXPathSelectRegExpContentPresentFalse(): void
+    {
+        $xpath = '//span[@class="test_class"]';
+        $regexp = '/Nonexistant/';
+
+        DOMAssert::assertXPathSelectRegExp($xpath, $regexp, false, $this->html);
+    }
 }
