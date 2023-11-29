@@ -84,14 +84,41 @@ final class DOMAssert
         );
     }
 
-    public static function assertXPathEquals(
+    /**
+     * @param array{"<"?: int, ">"?: int, "<="?: int, ">="?: int}|bool|int $count
+     *
+     * @throws Exception
+     */
+    public static function assertXPathCount(
         string $selector,
-        ?string $content,
-        bool|int $count,
+        array|bool|int $count,
         \DOMDocument|string $actual,
         string $message = '',
-        bool $isHtml = true,
-        bool $isXPath = false
+        bool $isHtml = true
+    ): void {
+        self::assertSelectEquals(
+            $selector,
+            null,
+            $count,
+            $actual,
+            $message,
+            $isHtml,
+            true
+        );
+    }
+
+    /**
+     * @param array{"<"?: int, ">"?: int, "<="?: int, ">="?: int}|bool|int $count
+     *
+     * @throws Exception
+     */
+    public static function assertXPathEquals(
+        string $selector,
+        string $content,
+        array|bool|int $count,
+        \DOMDocument|string $actual,
+        string $message = '',
+        bool $isHtml = true
     ): void {
         self::assertSelectEquals(
             $selector,
@@ -100,7 +127,31 @@ final class DOMAssert
             $actual,
             $message,
             $isHtml,
-            $isXPath
+            true
+        );
+    }
+
+    /**
+     * @param array{"<"?: int, ">"?: int, "<="?: int, ">="?: int}|bool|int $count
+     *
+     * @throws Exception
+     */
+    public static function assertXPathSelectRegExp(
+        string $xpath,
+        string $pattern,
+        array|bool|int $count,
+        \DOMDocument|string $actual,
+        string $message = '',
+        bool $isHtml = true
+    ): void {
+        self::assertSelectEquals(
+            $xpath,
+            "regexp:{$pattern}",
+            $count,
+            $actual,
+            $message,
+            $isHtml,
+            true
         );
     }
 
