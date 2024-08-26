@@ -17,7 +17,8 @@ use Symfony\Component\DomCrawler\Crawler;
  * @author     Jeff Welch <whatthejeff@gmail.com>
  * @copyright  Sebastian Bergmann <sebastian@phpunit.de>
  * @license    http://www.opensource.org/licenses/BSD-3-Clause  The BSD 3-Clause License
- * @link       http://github.com/phpunit/phpunit-dom-assertions
+ *
+ * @see       http://github.com/phpunit/phpunit-dom-assertions
  * @since      Class available since Release 1.0.0
  */
 abstract class DOMTestCase extends TestCase
@@ -37,19 +38,23 @@ abstract class DOMTestCase extends TestCase
      * assertSelectCount("#binder", true, $xml);  // any?
      * assertSelectCount(".binder", 3, $xml);     // exactly 3?
      *
-     * @param string                $selector
-     * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
-     * @param \DOMDocument|string   $actual
-     * @param string                $message
-     * @param boolean               $isHtml
-     * @since Method available since Release 1.0.0
+     * @param string                                                       $selector
+     * @param array{"<"?: int, ">"?: int, "<="?: int, ">="?: int}|bool|int $count
+     * @param \DOMDocument|string                                          $actual
+     * @param string                                                       $message
+     * @param bool                                                         $isHtml
      *
-     * @return void
+     * @since Method available since Release 1.0.0
      */
     public static function assertSelectCount($selector, $count, $actual, $message = '', $isHtml = true)
     {
         self::assertSelectEquals(
-            $selector, null, $count, $actual, $message, $isHtml
+            $selector,
+            null,
+            $count,
+            $actual,
+            $message,
+            $isHtml
         );
     }
 
@@ -57,42 +62,56 @@ abstract class DOMTestCase extends TestCase
      * assertSelectRegExp("#binder .name", "/Mike|Derek/", true, $xml); // any?
      * assertSelectRegExp("#binder .name", "/Mike|Derek/", 3, $xml);    // 3?
      *
-     * @param string                $selector
-     * @param string                $pattern
-     * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
-     * @param \DOMDocument|string   $actual
-     * @param string                $message
-     * @param boolean               $isHtml
-     * @since Method available since Release 1.0.0
+     * @param string                                                       $selector
+     * @param string                                                       $pattern
+     * @param array{"<"?: int, ">"?: int, "<="?: int, ">="?: int}|bool|int $count
+     * @param \DOMDocument|string                                          $actual
+     * @param string                                                       $message
+     * @param bool                                                         $isHtml
      *
-     * @return void
+     * @since Method available since Release 1.0.0
      */
     public static function assertSelectRegExp($selector, $pattern, $count, $actual, $message = '', $isHtml = true)
     {
         self::assertSelectEquals(
-            $selector, "regexp:$pattern", $count, $actual, $message, $isHtml
+            $selector,
+            "regexp:{$pattern}",
+            $count,
+            $actual,
+            $message,
+            $isHtml
         );
+    }
+
+    public static function assertAttrEquals($selector, $attr, $content, $count, $actual, $message = '', $isHtml = true)
+    {
+        self::assertDOMEquals($selector, $content, $count, $actual, $message, $isHtml, $attr);
+    }
+
+    public static function assertSelectEquals($selector, $content, $count, $actual, $message = '', $isHtml = true, $attributeName = null)
+    {
+        self::assertDOMEquals($selector, $content, $count, $actual, $message, $isHtml);
     }
 
     /**
      * assertSelectEquals("#binder .name", "Chuck", true,  $xml);  // any?
      * assertSelectEquals("#binder .name", "Chuck", false, $xml);  // none?
      *
-     * @param string                $selector
-     * @param string|null           $content
-     * @param integer|boolean|array{"<"?: int, ">"?: int, "<="?: int, ">="?: int} $count
-     * @param \DOMDocument|string   $actual
-     * @param string                $message
-     * @param boolean               $isHtml
+     * @param string                                                       $selector
+     * @param null|string                                                  $content
+     * @param array{"<"?: int, ">"?: int, "<="?: int, ">="?: int}|bool|int $count
+     * @param \DOMDocument|string                                          $actual
+     * @param string                                                       $message
+     * @param bool                                                         $isHtml
+     * @param null|mixed                                                   $attributeName
+     *
      * @since Method available since Release 1.0.0
      *
-     * @throws \PHPUnit\Framework\Exception
-     *
-     * @return void
+     * @throws Exception
      */
-    public static function assertSelectEquals($selector, $content, $count, $actual, $message = '', $isHtml = true)
+    private static function assertDOMEquals($selector, $content, $count, $actual, $message = '', $isHtml = true, $attributeName = null)
     {
-        $crawler = new Crawler;
+        $crawler = new Crawler();
 
         if ($actual instanceof \DOMDocument) {
             $crawler->addDocument($actual);
@@ -105,15 +124,19 @@ abstract class DOMTestCase extends TestCase
         $crawler = $crawler->filter($selector);
 
         if (is_string($content)) {
-            $crawler = $crawler->reduce(static function (Crawler $node) use ($content) {
-                $text = $node->text(null, true);
+            $crawler = $crawler->reduce(static function (Crawler $node) use ($content, $attributeName) {
+                if (is_null($attributeName)) {
+                    $text = $node->text(null, true);
+                } else {
+                    $text = $node->extract([$attributeName])[0] ?? '';
+                }
 
                 if ($content === '') {
                     return $text === '';
                 }
 
                 if (preg_match('/^regexp\s*:\s*(.*)/i', $content, $matches)) {
-                    return (bool)preg_match($matches[1], $text);
+                    return (bool) preg_match($matches[1], $text);
                 }
 
                 return strstr($text, $content) !== false;
@@ -124,16 +147,15 @@ abstract class DOMTestCase extends TestCase
 
         if (is_numeric($count)) {
             self::assertEquals($count, $found, $message);
-        } else if (is_bool($count)) {
+        } elseif (is_bool($count)) {
             if ($count) {
                 self::assertGreaterThan(0, $found, $message);
             } else {
                 self::assertEquals(0, $found, $message);
             }
-        } else if (is_array($count) &&
-            (isset($count['>']) || isset($count['<']) ||
-                isset($count['>=']) || isset($count['<=']))) {
-
+        } elseif (is_array($count)
+            && (isset($count['>']) || isset($count['<'])
+                                   || isset($count['>=']) || isset($count['<=']))) {
             if (isset($count['>'])) {
                 self::assertGreaterThan($count['>'], $found, $message);
             }
@@ -150,7 +172,7 @@ abstract class DOMTestCase extends TestCase
                 self::assertLessThanOrEqual($count['<='], $found, $message);
             }
         } else {
-            throw new \PHPUnit\Framework\Exception('Invalid count format');
+            throw new Exception('Invalid count format');
         }
     }
 }
