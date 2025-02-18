@@ -139,7 +139,7 @@ abstract class DOMTestCase extends TestCase
                     return (bool) preg_match($matches[1], $text);
                 }
 
-                return strstr($text, $content) !== false;
+                return $text === $content;
             });
         }
 
