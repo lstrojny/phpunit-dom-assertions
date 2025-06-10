@@ -2,5 +2,6 @@
 /composer.phar
 /phpunit.xml
 /vendor
+/.env
 /.phpunit.result.cache
 /.php-cs-fixer.cache
