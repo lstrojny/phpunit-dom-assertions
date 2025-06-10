@@ -206,6 +206,10 @@ final class DOMAssert
 
         $found = \count($crawler);
 
+        if ('' === $message) {
+            $message = 'Selector: '.$selector;
+        }
+
         if (is_numeric($count)) {
             Assert::assertSame($count, $found, $message);
         } elseif (\is_bool($count)) {

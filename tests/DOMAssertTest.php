@@ -55,9 +55,11 @@ final class DOMAssertTest extends TestCase
      */
     public function testAssertSelectCountPresentFalse(): void
     {
-        $this->expectException(AssertionFailedError::class);
         $selector = 'div#non_existent';
         $count = true;
+
+        $this->expectException(AssertionFailedError::class);
+        $this->expectExceptionMessageMatches('/'.preg_quote($selector, '/').'/');
 
         DOMAssert::assertSelectCount($selector, $count, $this->html);
     }
