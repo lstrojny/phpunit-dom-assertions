@@ -28,15 +28,15 @@
     "require": {
         "php": "~8.4.0 || ~8.5.0",
         "ext-dom": "*",
-        "phpunit/phpunit": "^10.5.58 || ^11.5.42 || ^12.4.1",
-        "symfony/css-selector": "^6.4.24 || ^7.3.0",
-        "symfony/dom-crawler": "^6.4.25 || ^7.3.3"
+        "phpunit/phpunit": "^10.5.58 || ^11.5.44 || ^12.4.5",
+        "symfony/css-selector": "^7.4.0 || ^8.0.0",
+        "symfony/dom-crawler": "^7.4.0 || ^8.0.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.89.0",
-        "phpstan/phpstan": "^2.1.31",
+        "friendsofphp/php-cs-fixer": "^3.91.0",
+        "phpstan/phpstan": "^2.1.32",
         "phpstan/phpstan-deprecation-rules": "^2.0.3",
-        "phpstan/phpstan-phpunit": "^2.0.7"
+        "phpstan/phpstan-phpunit": "^2.0.8"
     },
     "autoload": {
         "classmap": [
