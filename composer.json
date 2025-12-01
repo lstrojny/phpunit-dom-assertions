@@ -30,7 +30,7 @@
         "ext-dom": "*",
         "phpunit/phpunit": "^10.5.58 || ^11.5.42 || ^12.4.1",
         "symfony/css-selector": "^6.4.24 || ^7.3.0",
-        "symfony/dom-crawler": "^6.4.25 || ^7.3.3"
+        "symfony/dom-crawler": "^6.4.25 || ^7.3.3 || ^8.0.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.89.0",
