@@ -29,7 +29,7 @@
         "php": "~8.4.0 || ~8.5.0",
         "ext-dom": "*",
         "phpunit/phpunit": "^10.5.58 || ^11.5.42 || ^12.4.1",
-        "symfony/css-selector": "^6.4.24 || ^7.3.0",
+        "symfony/css-selector": "^6.4.24 || ^7.3.0 || ^8.0.0",
         "symfony/dom-crawler": "^6.4.25 || ^7.3.3"
     },
     "require-dev": {
