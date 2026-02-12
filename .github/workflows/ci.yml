@@ -78,15 +78,20 @@ jobs:
         php-version:
           - "8.4"
           - "8.5"
+        dependencies:
+          - "lowest"
+          - "highest"
 
     steps:
       - uses: "actions/checkout@v6"
       - uses: "shivammathur/setup-php@v2"
         with:
-          coverage: "none"
+          coverage: "pcov"
           php-version: "${{ matrix.php-version }}"
           ini-values: "${{ env.INI_VALUES }}"
       - uses: "ramsey/composer-install@v3"
+        with:
+          dependency-versions: "${{ matrix.dependencies }}"
 
-      - run: "vendor/bin/phpunit --no-coverage --no-logging"
+      - run: "vendor/bin/phpunit --no-logging"
         timeout-minutes: 3

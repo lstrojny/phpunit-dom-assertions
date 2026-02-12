@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+        beStrictAboutCoverageMetadata="true"
+        failOnAllIssues="true"
+        displayDetailsOnAllIssues="true"
         colors="true"
 >
     <testsuites>
@@ -13,4 +15,14 @@
     <php>
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[direct]=0"/>
     </php>
+    <coverage>
+        <report>
+            <text outputFile="php://stdout" showOnlySummary="true"/>
+        </report>
+    </coverage>
+    <source>
+        <include>
+            <directory>./src</directory>
+        </include>
+    </source>
 </phpunit>

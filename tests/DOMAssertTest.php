@@ -39,9 +39,6 @@ final class DOMAssertTest extends TestCase
         $this->html = $html;
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountPresentTrue(): void
     {
         $selector = 'div#test_id';
@@ -50,9 +47,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $count, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountPresentFalse(): void
     {
         $selector = 'div#non_existent';
@@ -64,9 +58,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $count, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountNotPresentTrue(): void
     {
         $selector = 'div#non_existent';
@@ -75,9 +66,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $count, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectNotPresentFalse(): void
     {
         $this->expectException(AssertionFailedError::class);
@@ -87,9 +75,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $count, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountChildTrue(): void
     {
         $selector = '#my_ul > li';
@@ -98,9 +83,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $count, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountChildFalse(): void
     {
         $this->expectException(AssertionFailedError::class);
@@ -110,9 +92,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $count, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountAdjacentSiblingTrue(): void
     {
         $selector = 'div + div + div';
@@ -121,9 +100,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $count, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountAdjacentSiblingFalse(): void
     {
         $this->expectException(AssertionFailedError::class);
@@ -133,9 +109,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $count, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountDescendantTrue(): void
     {
         $selector = '#my_ul li';
@@ -144,9 +117,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $count, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountDescendantFalse(): void
     {
         $this->expectException(AssertionFailedError::class);
@@ -156,9 +126,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $count, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountGreaterThanTrue(): void
     {
         $selector = '#my_ul > li';
@@ -167,9 +134,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $range, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountGreaterThanFalse(): void
     {
         $this->expectException(AssertionFailedError::class);
@@ -179,9 +143,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $range, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountGreaterThanEqualToTrue(): void
     {
         $selector = '#my_ul > li';
@@ -190,9 +151,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $range, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountGreaterThanEqualToFalse(): void
     {
         $this->expectException(AssertionFailedError::class);
@@ -202,9 +160,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $range, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountLessThanTrue(): void
     {
         $selector = '#my_ul > li';
@@ -213,9 +168,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $range, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountLessThanFalse(): void
     {
         $this->expectException(AssertionFailedError::class);
@@ -225,9 +177,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $range, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountLessThanEqualToTrue(): void
     {
         $selector = '#my_ul > li';
@@ -236,9 +185,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $range, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountLessThanEqualToFalse(): void
     {
         $this->expectException(AssertionFailedError::class);
@@ -248,9 +194,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $range, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountRangeTrue(): void
     {
         $selector = '#my_ul > li';
@@ -259,9 +202,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $range, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectCount
-     */
     public function testAssertSelectCountRangeFalse(): void
     {
         $this->expectException(AssertionFailedError::class);
@@ -271,9 +211,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectCount($selector, $range, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectEquals
-     */
     public function testAssertSelectEqualsContentPresentTrue(): void
     {
         $selector = 'span.test_class';
@@ -282,9 +219,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectEquals($selector, $content, true, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectEquals
-     */
     public function testAssertSelectEqualsContentPresentFalse(): void
     {
         $this->expectException(AssertionFailedError::class);
@@ -294,9 +228,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectEquals($selector, $content, true, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectEquals
-     */
     public function testAssertSelectEqualsContentNotPresentTrue(): void
     {
         $selector = 'span.test_class';
@@ -305,9 +236,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectEquals($selector, $content, false, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectEquals
-     */
     public function testAssertSelectEqualsContentNotPresentFalse(): void
     {
         $this->expectException(AssertionFailedError::class);
@@ -317,18 +245,12 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectEquals($selector, $content, false, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectEquals
-     */
     public function testDOMDocument(): void
     {
         $dom = new \DOMDocument();
         DOMAssert::assertSelectEquals('', null, false, $dom);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectRegExp
-     */
     public function testAssertSelectRegExpContentPresentTrue(): void
     {
         $selector = 'span.test_class';
@@ -337,9 +259,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectRegExp($selector, $regexp, true, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectRegExp
-     */
     public function testAssertNormalizedWhitespace(): void
     {
         $selector = 'span.test_class';
@@ -348,9 +267,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectRegExp($selector, $regexp, true, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertSelectRegExp
-     */
     public function testAssertSelectRegExpContentPresentFalse(): void
     {
         $selector = 'span.test_class';
@@ -359,9 +275,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertSelectRegExp($selector, $regexp, false, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertXPathCount
-     */
     public function testAssertXPathCountTrue(): void
     {
         $xpath = '//li[@class="my_li"]';
@@ -369,9 +282,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertXPathCount($xpath, 4, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertXPathCount
-     */
     public function testAssertXPathCountZero(): void
     {
         $xpath = '//li[@class="nonexistent_element"]';
@@ -379,9 +289,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertXPathCount($xpath, 0, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertXPathEquals
-     */
     public function testAssertSelectXPathContentPresentTrue(): void
     {
         $xpath = '//span[@class="test_class"]';
@@ -390,9 +297,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertXPathEquals($xpath, $content, true, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertXPathEquals
-     */
     public function testAssertSelectXPathContentPresentFalse(): void
     {
         $xpath = '//span[@class="test_class"]';
@@ -401,9 +305,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertXPathEquals($xpath, $content, false, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertXPathSelectRegExp
-     */
     public function testAssertXPathSelectRegExpContentPresentTrue(): void
     {
         $xpath = '//span[@class="test_class"]';
@@ -412,9 +313,6 @@ final class DOMAssertTest extends TestCase
         DOMAssert::assertXPathSelectRegExp($xpath, $regexp, true, $this->html);
     }
 
-    /**
-     * @covers \PHPUnit\Framework\DOMAssert::assertXPathSelectRegExp
-     */
     public function testAssertXPathSelectRegExpContentPresentFalse(): void
     {
         $xpath = '//span[@class="test_class"]';
