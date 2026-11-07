@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.4"
+          - "8.5"
 
     steps:
       - uses: "actions/checkout@v6"
@@ -38,7 +38,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.4"
+          - "8.5"
 
     steps:
       - uses: "actions/checkout@v6"
@@ -57,7 +57,7 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.4"
+          - "8.5"
 
     steps:
       - uses: "actions/checkout@v6"
@@ -76,8 +76,8 @@ jobs:
     strategy:
       matrix:
         php-version:
-          - "8.4"
           - "8.5"
+          - "8.6"
         dependencies:
           - "lowest"
           - "highest"

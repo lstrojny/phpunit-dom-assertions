@@ -6,8 +6,8 @@ $config = (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setRules([
         '@DoctrineAnnotation' => true,
-        '@PHP8x4Migration:risky' => true,
-        '@PHP8x4Migration' => true,
+        '@PHP8x5Migration:risky' => true,
+        '@PHP8x5Migration' => true,
         '@PHPUnit11x0Migration:risky' => true,
         '@PhpCsFixer' => true,
         '@PhpCsFixer:risky' => true,
